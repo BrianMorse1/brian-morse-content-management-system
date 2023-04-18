@@ -54,4 +54,4 @@ const viewAllEmployees = () => {
     })
 };
 
-mainMenu();
+// mainMenu();
