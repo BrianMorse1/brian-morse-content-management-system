@@ -25,16 +25,16 @@ INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES
 ('Samantha', 'Kim', 1, null),
 ('Aisha', 'Choudhary', 2, 1),
-('Gabriel', 'Silva', 3, 1),
+('Gabriel', 'Silva', 3, 2),
 ('Bella', 'Nguyen', 4, 1),
-('Chen', 'Ling', 5, 1),
+('Chen', 'Ling', 5, 4),
 ('Dante', 'Santos', 6, 1),
-('Omar', 'Ahmed', 7, 1),
+('Omar', 'Ahmed', 7, 6),
 ('Lila', 'Garcia', 8, 1),
 ('Jared', 'Hernandez', 8, 1),
 ('Leah', 'Cohen', 9, 1),
-('David', 'Lee', 10, 1),
-('Maria', 'Gonzalez', 10, 1),
+('David', 'Lee', 10, 9),
+('Maria', 'Gonzalez', 10, 9),
 ('Nina', 'Wu', 11, 1),
-('Elias', 'Khalil', 12, 1),
-('Sofia', 'Gomez', 12, 1);
+('Elias', 'Khalil', 12, 11),
+('Sofia', 'Gomez', 12, 11);

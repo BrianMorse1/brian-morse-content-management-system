@@ -1,3 +1,5 @@
+//requires dotenv to use .env file
+require('dotenv').config();
 //requires inquirer
 const inquirer = require('inquirer');
 //questions for CLI
@@ -6,11 +8,13 @@ const mysql = require('mysql2');
 const db = mysql.createConnection({
     host: 'localhost',
     user: process.env.DB_USER,
-    password: process.env.DB_PASS,
+    password: 'War57craft!@#',
     database: process.env.DB_NAME
 });
 db.connect(function(error){
     if(error)throw error
+    //calling mainMenu here so that it ensures a connection is established to the db. 
+    mainMenu();
 });
 
 //sets the inquirer prompt to the questions array and conditional code for each selection
@@ -20,10 +24,10 @@ inquirer.prompt(questions).then(answers => {
         case 'View all departments': 
         viewAllDepartments()
         break;
-        case 'View all roles' :
+        case 'View all roles':
         viewAllRoles()
         break;
-        case 'View all employees' :
+        case 'View all employees':
         viewAllEmployees()
         break;
         // default :
@@ -31,27 +35,26 @@ inquirer.prompt(questions).then(answers => {
     }
 })};
 const viewAllDepartments = () => {
-    db.promise().query('SELECT * FROM departments')
-    .then(rows => {
-        console.log(rows);
+    db.query('SELECT * FROM departments', function(err, rows){
+        if(err) throw err;
+        console.table(rows);
         mainMenu(); 
     })
 };
 
 const viewAllRoles = () => {
-    db.promise().query('SELECT * FROM roles')
-    .then(rows => {
-        console.log(rows);
+    db.query('SELECT * FROM roles',  function(err, rows){
+        if(err) throw err;
+        console.table(rows);
         mainMenu();
-    })
+})
 };
 
 const viewAllEmployees = () => {
-    db.promise().query('SELECT * FROM employees')
-    .then(rows => {
-        console.log(rows);
+    db.query('SELECT * FROM employees', function(err, rows){
+        if(err) throw err;
+        console.table(rows);
         mainMenu();
     })
 };
 
-// mainMenu();
